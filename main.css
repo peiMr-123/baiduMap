@@ -3,7 +3,93 @@
   padding: 0;
 }
 #maps {
-  width: 500px;
-  height: 400px;
+  width: 1000px;
+  height: 500px;
   margin: auto;
+}
+.wrap {
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  background-color:#1284e6 ;
+  display:     flex;
+  overflow: hidden;
+  position: relative;   
+   box-sizing: border-box;
+}
+/* .wrap span {
+  border-left: 15px solid #fff;
+  border-bottom: 15px solid #1284e6;
+  position: absolute;
+  bottom: -0;
+  left: 50%;
+} */
+.left {
+  width: 20%;
+  border: 1px dotted #ccc;
+  background-color: #fff;
+}
+.left img {
+  width: 100%;
+  height: auto;
+}
+.right {
+  color: #fff;
+  margin-left: 10px;
+}
+.right .title {
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+
+
+
+/*地图标题*/
+.BMap_bubble_title {
+  display: none;
+}
+/* 消息内容 */
+.BMap_bubble_content {
+  width: 100% !important;
+  height: 100% !important;
+	background-color:white;
+
+  /* padding: 10px 5px; */
+}
+/* 内容 */
+.BMap_pop div:nth-child(9) {
+	top:35px !important;  
+	border-radius:7px;
+}
+/* 左上角删除按键 */
+.BMap_pop >img:nth-child(10) {
+  display: none;
+	top:43px !important;
+	left:215px !important;
+}
+.BMap_top {
+	display:none;
+}
+.BMap_bottom {
+	display:none;
+}
+.BMap_center {
+	display:none;
+}
+/* 隐藏边角 */
+.BMap_pop >div:nth-child(1)  {
+	display:none;
+}
+.BMap_pop div:nth-child(3) {
+	display:none;
+}
+.BMap_pop div:nth-child(5) {
+	display:none;
+}
+.BMap_pop div:nth-child(7) {
+	display:none;
+}
+.BMap_bubble_content div:nth-child(2) div:nth-child(1) {
+  display: flex !important;
 }

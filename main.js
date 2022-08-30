@@ -2634,8 +2634,12 @@ var mapStyleV2 = {
 };
 var point = new BMap.Point(120.49226, 36.15661); //经纬度
 var marker = new BMap.Marker(point)   // 创建标注  
+// let icon1 = new BMap.Icon('./2.png', new BMap.Size(30, 23))
+// let marker = new BMap.Marker(point, {
+//   icon: icon1
+// })
 map.addOverlay(marker)   // 将标注添加到地图中
-map.centerAndZoom(point, 18);    //初始化地图,设置中心点坐标和地图级别
+map.centerAndZoom(point, 17);    //初始化地图,设置中心点坐标和地图级别
 map.enableScrollWheelZoom(); //开启鼠标滚轮缩放
 
 // 个性化
@@ -2666,6 +2670,37 @@ const control = new BMap.MapTypeControl({ //地图类型控件，默认位于地
   anchor: window.BMAP_ANCHOR_TOP_RIGHT, //右上
   mapTypes  //类型
 });
+
+// 两秒后平滑移动
+// window.setTimeout(function () {
+
+//   map.panTo(new BMap.Point(116.409, 39.918));
+
+// }, 2000);
+var opts = {
+  width: 350,     // 信息窗口宽度
+  height: 100,    // 信息窗口高度
+}
+
+var info = '<div class="wrap"><div class="left"><span></span><img src="https://bat100-sys.oss-cn-beijing.aliyuncs.com/Admin/ImageGallery/166141903563073e1b5b7c2.png"></div><div class="right"><p class="title">百辐网络科技集团有限公司</p><p class="location">青岛市崂山区海信创智谷</p></div></div>'
+var infoWindow = new BMap.InfoWindow(info, opts);  // 创建信息窗口对象
+map.openInfoWindow(infoWindow, map.getCenter());        // 打开信息窗口
+// map.addOverlay(Circle)
+
+// 点击事件
+marker.addEventListener("click", function () {
+  map.openInfoWindow(infoWindow, point);        // 打开信息窗口
+});
+
+var circle = new BMap.Circle(point, 50, { strokeColor: "#1284e6", fillColor:'rgba(18, 132, 230,.3)',strokeWeight: 2, strokeOpacity: 0.5 }); //创建圆
+circle.getFillColor('red')
+map.addOverlay(circle);
+// 设置圆可编辑拖拽
+// circle.enableEditing()
+
+
+
+
 map.addControl(control); //添加控件
 
 map.reset(); //重置
